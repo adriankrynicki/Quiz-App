@@ -17,7 +17,7 @@
     ></script>
     <title>Quiz App</title>
   </head>
-  <body>
+  <body onload="init()">
     <nav class="navbar bg-body-tertiary">
       <div class="container-fluid">
         <span class="navbar-brand mb-0 h1">QuizApp</span>
@@ -35,29 +35,29 @@
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title">Frage</h5>
-              <div class="card mb-2 cardWidth">
-                <div class="card-body">
+              <h5 class="card-title" id="questionText">Frage</h5>
+              <div class="card mb-2 cardWidth" onclick="answer('answer_1')">
+                <div class="card-body" id="answer_1">
                   This is some text within a card body.
                 </div>
               </div>
-              <div class="card mb-2 cardWidth">
-                <div class="card-body">
+              <div class="card mb-2 cardWidth" onclick="answer('answer_2')">
+                <div class="card-body" id="answer_2">
                   This is some text within a card body.
                 </div>
               </div>
-              <div class="card mb-2 cardWidth">
-                <div class="card-body">
+              <div class="card mb-2 cardWidth" onclick="answer('answer_3')">
+                <div class="card-body" id="answer_3">
                   This is some text within a card body.
                 </div>
               </div>
-              <div class="card mb-2 cardWidth">
-                <div class="card-body">
+              <div class="card mb-2 cardWidth" onclick="answer('answer_4')">
+                <div class="card-body" id="answer_4">
                   This is some text within a card body.
                 </div>
               </div>
               <div class="question-footer">
-                <b>1</b> von <b>5</b> Fragen
+                <b>1</b> von <b id="questionNr">5</b> Fragen
                 <button>Nächste frage</button>
               </div>
             </div>
