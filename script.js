@@ -97,3 +97,24 @@ function renderQuestion() {
     document.getElementById('answer_3').innerHTML = question['answer_3'];
     document.getElementById('answer_4').innerHTML = question['answer_4'];
 }
+
+function answer(selection) {
+    let question = questions[currentQuestion];
+    let selectedQuestionNumber = parseInt(selection.slice(-1)); // Extract the last character and convert it to an integer
+
+    // Check if the selected answer is correct
+    if (selectedQuestionNumber === question['rght_answer']) {
+        // Add class to the selected answer
+        document.getElementById(selection).classList.add('bg-success');
+
+        // Add class to the correct answer with different possible IDs     
+        let correctAnswer = 'answer' + question['rght_answer'];
+        document.getElementById(correctAnswer).classList.add('bg-success');
+    } else {
+        let incorrectAnswer = 'answer' + selectedQuestionNumber;
+        // Add class to the selected incorrect answer if needed
+        document.getElementById(selection).classList.add('bg-danger');
+        document.getElementById(incorrectAnswer).classList.add('bg-danger');
+    }
+}
+
