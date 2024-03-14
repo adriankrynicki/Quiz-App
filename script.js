@@ -85,9 +85,23 @@ let questions = [
 let currentQuestion = 0;
 
 function init() {
-  document.getElementById("questionNr").innerHTML = questions.length;
+  document.getElementById("questionAmount").innerHTML = questions.length;
 
   renderQuestion();
+}
+
+function qustionCount() {
+  let questionNummber = currentQuestion + 1;
+  document.getElementById('questionNr').innerHTML = questionNummber;
+
+  if (currentQuestion >= questions.length - 1) {
+    for (let i = 1; i <= 4; i++) {
+      document.getElementById(`answer${i}`).style.display = "none";
+      document.getElementById(`answer_${i}`).style.display = "none";
+    }
+    document.getElementById('questionText').style.display = "none";
+    document.getElementById('brainScore').style.display = "block";
+  }
 }
 
 function renderQuestion() {
@@ -124,6 +138,7 @@ function answer(selection) {
 function nextQuestion() {
   currentQuestion++;
   renderQuestion();
+  qustionCount();
 
   document.getElementById('nextButton').disabled = true;
   removeClasses();

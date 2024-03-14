@@ -51,6 +51,11 @@ body {
     gap: 40px;
 }
 
+.brainScore {
+    display: none;
+    width: 200px;
+}
+
 
 
 
