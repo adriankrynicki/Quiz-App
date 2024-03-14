@@ -117,5 +117,22 @@ function answer(selection) {
 
     document.getElementById(correctAnswer).classList.add("bg-success");
   }
+
+  document.getElementById('nextButton').disabled = false;
+}
+
+function nextQuestion() {
+  currentQuestion++;
+  renderQuestion();
+
+  document.getElementById('nextButton').disabled = true;
+  removeClasses();
+}
+
+function removeClasses() {
+  for (let i = 1; i <= 4; i++) {
+    document.getElementById(`answer${i}`).classList.remove("bg-danger", "bg-success");
+    document.getElementById(`answer_${i}`).classList.remove("bg-danger", "bg-success");
+  }
 }
 
