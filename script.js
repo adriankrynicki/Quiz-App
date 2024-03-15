@@ -82,6 +82,7 @@ let questions = [
   },
 ];
 
+let rightQuestion = 0;
 let currentQuestion = 0;
 
 function init() {
@@ -94,13 +95,17 @@ function qustionCount() {
   let questionNummber = currentQuestion + 1;
   document.getElementById('questionNr').innerHTML = questionNummber;
 
-  if (currentQuestion >= questions.length - 1) {
+  if (currentQuestion >= questions.length -1) {
+    document.getElementById('questionText').style.display = "none";
+    document.getElementById('brainScore').style.display = "flex";
+    document.getElementById('question-footer').style.display ="none";
+    document.getElementById('allQuestions').innerHTML = questions.length;
+    document.getElementById('yourScore').innerHTML = rightQuestion;
     for (let i = 1; i <= 4; i++) {
       document.getElementById(`answer${i}`).style.display = "none";
       document.getElementById(`answer_${i}`).style.display = "none";
     }
-    document.getElementById('questionText').style.display = "none";
-    document.getElementById('brainScore').style.display = "block";
+    
   }
 }
 
@@ -122,6 +127,7 @@ function answer(selection) {
 
     let correctAnswer = "answer" + question["rght_answer"];
     document.getElementById(correctAnswer).classList.add("bg-success");
+    rightQuestion++;
   } else {
     let incorrectAnswer = "answer" + selectedQuestionNumber;
     let correctAnswer = "answer" + question["rght_answer"];

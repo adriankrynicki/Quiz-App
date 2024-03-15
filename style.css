@@ -53,7 +53,14 @@ body {
 
 .brainScore {
     display: none;
-    width: 200px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.brainScore img {
+    width: 50%;
 }
 
 
