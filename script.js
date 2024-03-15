@@ -105,7 +105,7 @@ function qustionCount() {
       document.getElementById(`answer${i}`).style.display = "none";
       document.getElementById(`answer_${i}`).style.display = "none";
     }
-    
+    progress();
   }
 }
 
@@ -148,6 +148,7 @@ function nextQuestion() {
 
   document.getElementById('nextButton').disabled = true;
   removeClasses();
+  
 }
 
 function removeClasses() {
@@ -157,3 +158,10 @@ function removeClasses() {
   }
 }
 
+function progress() {
+  let percent = currentQuestion / questions.length;
+  percent = percent * 100;
+
+  document.getElementById('progress-bar').innerHTML = `${percent} %`
+  document.getElementById('progress-bar').style = `width: ${percent}%`
+}
