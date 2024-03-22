@@ -160,6 +160,23 @@ function progress() {
   let percent = currentQuestion / questions.length;
   percent = percent * 100;
 
-  document.getElementById('progress-bar').innerHTML = `${percent} %`
-  document.getElementById('progress-bar').style = `width: ${percent}%`
+  document.getElementById('progress-bar').innerHTML = `${percent} %`;
+  document.getElementById('progress-bar').style = `width: ${percent}%`;
+}
+
+function repaly() {
+  document.getElementById('questionText').style.display = "";
+  document.getElementById('brainScore').style.display = "none";
+  document.getElementById('question-footer').style.display = "";
+  document.getElementById('questionNr').innerHTML = 1;
+  for (let i = 1; i <= 4; i++) {
+    document.getElementById(`answer${i}`).style.display = "";
+    document.getElementById(`answer_${i}`).style.display = "";
+  }
+  
+  rightQuestion = 0;
+  currentQuestion = 0;
+
+  init();
+  progress();
 }
