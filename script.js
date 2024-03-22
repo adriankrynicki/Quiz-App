@@ -84,6 +84,8 @@ let questions = [
 
 let rightQuestion = 0;
 let currentQuestion = 0;
+let audioSuccess = new Audio('sounds/win.mp3');
+let audioFail = new Audio('sounds/lose.mp3');
 
 function init() {
   document.getElementById("questionAmount").innerHTML = questions.length;
@@ -136,6 +138,7 @@ function answer(selection) {
     let correctAnswer = "answer" + question["rght_answer"];
     document.getElementById(correctAnswer).classList.add("bg-success");
     rightQuestion++;
+    audioSuccess.play();
   } else {
     let incorrectAnswer = "answer" + selectedQuestionNumber;
     let correctAnswer = "answer" + question["rght_answer"];
@@ -144,6 +147,7 @@ function answer(selection) {
     document.getElementById(incorrectAnswer).classList.add("bg-danger");
 
     document.getElementById(correctAnswer).classList.add("bg-success");
+    audioFail.play();
   }
 
   document.getElementById('nextButton').disabled = false;
