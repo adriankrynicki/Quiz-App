@@ -91,22 +91,30 @@ function init() {
   renderQuestion();
 }
 
-function qustionCount() {
-  let questionNummber = currentQuestion + 1;
+function nextQuestion() {
+  currentQuestion++;
+  questionCount();
+  document.getElementById('nextButton').disabled = true;
+  removeClasses();
+  renderQuestion();
+}
+
+function questionCount() {
+  let questionNummber = currentQuestion +1;
   document.getElementById('questionNr').innerHTML = questionNummber;
 
-  if (currentQuestion >= questions.length -1) {
+  if (currentQuestion >= questions.length) {
     document.getElementById('questionText').style.display = "none";
     document.getElementById('brainScore').style.display = "flex";
-    document.getElementById('question-footer').style.display ="none";
+    document.getElementById('question-footer').style.display = "none";
     document.getElementById('allQuestions').innerHTML = questions.length;
     document.getElementById('yourScore').innerHTML = rightQuestion;
     for (let i = 1; i <= 4; i++) {
       document.getElementById(`answer${i}`).style.display = "none";
       document.getElementById(`answer_${i}`).style.display = "none";
     }
-    progress();
   }
+  progress();
 }
 
 function renderQuestion() {
@@ -139,16 +147,6 @@ function answer(selection) {
   }
 
   document.getElementById('nextButton').disabled = false;
-}
-
-function nextQuestion() {
-  currentQuestion++;
-  renderQuestion();
-  qustionCount();
-
-  document.getElementById('nextButton').disabled = true;
-  removeClasses();
-  
 }
 
 function removeClasses() {
